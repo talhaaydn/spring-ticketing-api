@@ -5,7 +5,7 @@ import com.talha.ticketing.dto.event.EventResponseDTO;
 import com.talha.ticketing.entity.Event;
 import com.talha.ticketing.mapper.EventMapper;
 import com.talha.ticketing.repository.EventRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,17 +14,11 @@ import java.util.Optional;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class EventService {
 
     private final EventRepository eventRepository;
     private final EventMapper eventMapper;
-
-
-    @Autowired
-    public EventService(EventRepository eventRepository, EventMapper eventMapper) {
-        this.eventRepository = eventRepository;
-        this.eventMapper = eventMapper;
-    }
 
     public List<EventResponseDTO> getAllEvents() {
         List<Event> events = eventRepository.findAll();

@@ -5,7 +5,7 @@ import com.talha.ticketing.dto.user.UserResponseDTO;
 import com.talha.ticketing.entity.User;
 import com.talha.ticketing.mapper.UserMapper;
 import com.talha.ticketing.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,16 +13,11 @@ import java.util.List;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-
-    @Autowired
-    public UserService(UserRepository userRepository, UserMapper userMapper) {
-        this.userRepository = userRepository;
-        this.userMapper = userMapper;
-    }
 
     public List<UserResponseDTO> getAllUsers() {
         return userMapper.toResponseDTOList(userRepository.findAll());

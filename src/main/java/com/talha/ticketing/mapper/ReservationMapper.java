@@ -7,6 +7,7 @@ import com.talha.ticketing.entity.Event;
 import com.talha.ticketing.entity.Reservation;
 import com.talha.ticketing.entity.User;
 import com.talha.ticketing.enums.ReservationStatus;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -14,15 +15,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class ReservationMapper {
 
     private final UserMapper userMapper;
     private final EventMapper eventMapper;
-
-    public ReservationMapper(UserMapper userMapper, EventMapper eventMapper) {
-        this.userMapper = userMapper;
-        this.eventMapper = eventMapper;
-    }
 
     public ReservationResponseDTO toResponseDTO(Reservation reservation) {
         if (reservation == null) {

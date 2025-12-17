@@ -12,6 +12,7 @@ import com.talha.ticketing.mapper.ReservationMapper;
 import com.talha.ticketing.repository.EventRepository;
 import com.talha.ticketing.repository.ReservationRepository;
 import com.talha.ticketing.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,24 +20,13 @@ import java.time.LocalDateTime;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ReservationService {
 
     private final UserRepository userRepository;
     private final EventRepository eventRepository;
     private final ReservationRepository reservationRepository;
     private final ReservationMapper reservationMapper;
-
-    public ReservationService(
-            UserRepository userRepository,
-            EventRepository eventRepository,
-            ReservationRepository reservationRepository,
-            ReservationMapper reservationMapper
-    ) {
-        this.userRepository = userRepository;
-        this.eventRepository = eventRepository;
-        this.reservationRepository = reservationRepository;
-        this.reservationMapper = reservationMapper;
-    }
 
     public ReservationResponseDTO createReservation(ReservationRequestDTO reservationRequestDTO) {
         User user = userRepository.findById(reservationRequestDTO.getUserId())

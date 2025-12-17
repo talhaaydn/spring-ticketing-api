@@ -4,6 +4,7 @@ import com.talha.ticketing.dto.event.EventRequestDTO;
 import com.talha.ticketing.dto.event.EventResponseDTO;
 import com.talha.ticketing.service.EventService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +13,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/events")
+@RequiredArgsConstructor
 public class EventController {
 
     private final EventService eventService;
-
-    public EventController(EventService eventService) {
-        this.eventService = eventService;
-    }
 
     @GetMapping()
     public ResponseEntity<List<EventResponseDTO>> getAllEvents() {
