@@ -70,10 +70,6 @@ public class Reservation {
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
-
-        if (status == null) {
-            status = ReservationStatus.RESERVED;
-        }
     }
 
     @Override

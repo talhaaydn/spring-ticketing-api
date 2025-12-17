@@ -2,10 +2,7 @@ package com.talha.ticketing.mapper;
 
 import com.talha.ticketing.dto.event.EventRequestDTO;
 import com.talha.ticketing.dto.event.EventResponseDTO;
-import com.talha.ticketing.dto.user.UserRequestDTO;
-import com.talha.ticketing.dto.user.UserResponseDTO;
 import com.talha.ticketing.entity.Event;
-import com.talha.ticketing.entity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;

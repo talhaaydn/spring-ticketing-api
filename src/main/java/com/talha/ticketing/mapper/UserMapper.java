@@ -12,11 +12,6 @@ import java.util.stream.Collectors;
 @Component
 public class UserMapper {
 
-    /**
-     * Entity'yi Response DTO'ya çevirir
-     * @param user User entity
-     * @return UserResponseDTO
-     */
     public UserResponseDTO toResponseDTO(User user) {
         if (user == null) {
             return null;
@@ -30,11 +25,6 @@ public class UserMapper {
         );
     }
 
-    /**
-     * Request DTO'yu Entity'ye çevirir
-     * @param dto UserRequestDTO
-     * @return User entity
-     */
     public User toEntity(UserRequestDTO dto) {
         if (dto == null) {
             return null;
@@ -46,11 +36,6 @@ public class UserMapper {
         return user;
     }
 
-    /**
-     * Entity listesini Response DTO listesine çevirir
-     * @param users User entity listesi
-     * @return List<UserResponseDTO>
-     */
     public List<UserResponseDTO> toResponseDTOList(List<User> users) {
         if (users == null || users.isEmpty()) {
             return Collections.emptyList();
